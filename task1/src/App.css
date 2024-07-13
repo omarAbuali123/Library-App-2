@@ -104,3 +104,18 @@ button:hover {
 
 
 
+
+
+
+
+
+
+
+.book-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}

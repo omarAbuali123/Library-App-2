@@ -29,4 +29,4 @@ const initState = {
 
 
 }
-export default initState
+export default initState;

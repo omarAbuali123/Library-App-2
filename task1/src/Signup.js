@@ -5,36 +5,30 @@ import { useNavigate } from 'react-router-dom';
 function SignUp() {
     const navigate = useNavigate();
 
-    // State variables for input values
+    
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
 
-    // Function to handle form submission
+    
     const handleSignup = (e) => {
         e.preventDefault();
 
-        // Create user object
         let u = {
             name: name,
             email: email,
             pass: pass
         };
 
-        // Store user data in session storage
+        
         sessionStorage.setItem("user_data", JSON.stringify(u));
         alert("Sign up Successfully !!!");
-
-        // Reset input fields after submission
-        setName('');
-        setEmail('');
-        setPass('');
+        sessionStorage.setItem("signup",true)
         navigate("/");
     };
 
     return (
         <div>
-           
             <div className="input">
                 <form onSubmit={handleSignup}>
                     <label htmlFor="name">Name:
@@ -68,9 +62,7 @@ function SignUp() {
                 </form>
             </div>
             <div className="">
-
             </div>
-           
         </div>
     );
 };

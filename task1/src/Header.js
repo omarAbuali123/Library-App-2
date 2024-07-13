@@ -1,8 +1,18 @@
-
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+
+const navigate = useNavigate();
+const handleLogout = () => {
+  sessionStorage.removeItem("name");
+  sessionStorage.removeItem("email");
+  sessionStorage.removeItem("pass");
+  sessionStorage.removeItem("signup");
+  navigate("/signup");
+};
+
   return (
     <header style={styles.header}>
       <div style={styles.container}>
@@ -12,13 +22,18 @@ const Header = () => {
             <li style={styles.navItem}><Link to="/" style={styles.navLink}>Home</Link></li>
             <li style={styles.navItem}><Link to="/about" style={styles.navLink}>About</Link></li>
             <li style={styles.navItem}><Link to="/contact" style={styles.navLink}>Contact</Link></li>
-            <li style={styles.navItem}><Link to="/signup" style={styles.navLink}>Signup</Link></li>
+            <li style={styles.navItem}><Link to="/BookCatalog" style={styles.navLink}>BookCatalog</Link></li>
+            {/* <li style={styles.navItem}><Link to="/database" style={styles.navLink}>database</Link></li> */}
+            <li style={styles.navItem}><button onClick={handleLogout}>
+            {sessionStorage.getItem("signup") === "true" ? (<span>Logout</span>) : (<span>Signup</span>)}
+          </button></li>
           </ul>
         </nav>
       </div>
     </header>
   );
 };
+
 
 const styles = {
   header: {
@@ -60,3 +75,11 @@ const styles = {
 };
 
 export default Header;
+
+
+
+
+
+
+
+

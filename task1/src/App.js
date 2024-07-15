@@ -10,12 +10,13 @@ import { Database } from 'firebase/database';
 import './App.css';
 
 
+
 function App() {
   return (
     <div>
       <BrowserRouter> 
       <Header />
-      {/* <Footer /> */}
+      <Footer />
       <Routes>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/" element={<Main/>}/>
